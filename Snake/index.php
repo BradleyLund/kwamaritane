@@ -9,6 +9,8 @@
 
     <body>
 
+        
+
         <button class="start">Start/Restart</button>
         <div class="score">Score:<span>0</span></div>
 
@@ -115,15 +117,14 @@
             <div></div>
         </div>
 
-        <script>
-            const fs = require('fs') 
+        <div id="scores">
+            <?php
+                $myfile = fopen("Scores.txt", "r") or die("Unable to open file!");
+                echo fread($myfile,filesize("Scores.txt"));
+                fclose($myfile);
 
-fs.readFile('Scores.txt', (err, data) => { 
-	if (err) throw err; 
+            ?>
+        </div>
 
-	console.log(data.toString()); 
-}) 
-        </script>
-
-    </body>
+    </>
 </html>
